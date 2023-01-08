@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Show Events</title>
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"
+        th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}">
+
+  <script src="/webjars/jquery/1.11.1/jquery.min.js"></script>
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+          integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+          crossorigin="anonymous" th:src="@{/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js}"></script>
+</head>
+<body>
+<!--/*@thymesVar id="event" type="edu.gym.climbing.model.Event"*/-->
+<div class="container-fluid" style="margin-top: 20px">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <div class="pannel-group">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <div class="row">
+              <div class="col-md-10 ">
+                <h1 class="panel-title" th:text="'Active Event'">Gym name Here!</h1>
+              </div>
+              <div class="col-md-1">
+                <a class="btn btn-default" href="#" th:href="@{'/'}" role="button">Back</a>
+              </div>
+            </div>
+          </div>
+          <div class="panel-body">
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-3">
+                  <h5>Gym:</h5>
+                </div>
+                <div class="col-md-3">
+                  <p th:text="${(event.gym.getName())}">Kyiv</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-3">
+                  <h5>Name:</h5>
+                </div>
+                <div class="col-md-3">
+                  <p th:text="${(event.name)}">Kyiv</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-3">
+                  <h5>Address:</h5>
+                </div>
+                <div class="col-md-3">
+                  <p th:text="${(event.address)}">Kyiv</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-3">
+                  <h5>Description:</h5>
+                </div>
+                <div class="col-md-3">
+                  <p th:text="${event.description}">Street</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-3">
+                  <h5>Start date:</h5>
+                </div>
+                <div class="col-md-3">
+                  <p th:text="${(event.dateFrom)}">4</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-3">
+                  <h5>End date:</h5>
+                </div>
+                <div class="col-md-3">
+                  <p th:text="${event.dateTill}"></p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-3">
+                  <h5>Price:</h5>
+                </div>
+                <div class="col-md-3">
+                  <p th:text="${event.price}"></p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-3">
+                  <a class="btn btn-default" href="#" th:href="@{'/gym/event/participants/' + ${event.id}}" role="button">Show participants</a>
+                </div>
+                <div class="col-md-3">
+                  <a class="btn btn-default" href="#" th:href="@{'/gym/event/archived/' + ${event.gym.id}}" role="button">Show archived events</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

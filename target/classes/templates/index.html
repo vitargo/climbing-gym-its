@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Climbing Gym</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"
+          th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}">
+
+    <script src="/webjars/jquery/1.11.1/jquery.min.js"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous" th:src="@{/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js}"></script>
+</head>
+<body>
+<!--/*@thymesVar id="gyms" type="java.util.List"*/-->
+<!--/*@thymesVar id="gym" type="edu.gym.climbing.model.Gym"*/-->
+<div class="container-fluid" style="margin-top: 20px">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="panel panel-primary">
+
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-md-9 ">
+                            <h1 class="panel-title">Choose your climbing gym!</h1>
+                        </div>
+                        <div class="col-md-1">
+                            <a class="btn btn-default" href="#" th:href="@{'/gym/new'}" role="button">Add new Gym</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive" th:if="${not #lists.isEmpty(gyms)}">
+                        <table class="table table-hover ">
+                            <thead class="thead-inverse">
+                            <tr>
+                                <th>ID</th>
+                                <th>Gym Name</th>
+                                <th>Gym Info</th>
+                                <th>All Gym Events</th>
+                                <th>Update Gym Info</th>
+                                <th>Delete Gym</th>
+                            </tr>
+                            </thead>
+                            <tr th:each="gym : ${gyms}">
+                                <td th:text="${gym.id}">1</td>
+                                <td th:text="${gym.name}">Climbing gym</td>
+                                <td><a href='#' th:href="@{'/gym/info/' + ${gym.id}}">Gym Info</a></td>
+                                <td><a href='#' th:href="@{'/gym/events/' + ${gym.id}}">Gym Events</a></td>
+                                <td><a href="#" th:href="@{'/gym/update/' + ${gym.id}}">Update</a></td>
+                                <td><a href="#" th:href="@{'/gym/delete/' + ${gym.id}}">Delete</a></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
