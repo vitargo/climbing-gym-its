@@ -1,4 +1,4 @@
-package edu.gym.climbing.services.impl;
+package edu.gym.climbing.services;
 
 import edu.gym.climbing.commands.ClimberCommand;
 import edu.gym.climbing.converters.ClimberToClimberCommand;

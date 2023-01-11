@@ -2,6 +2,7 @@ package edu.gym.climbing.services;
 
 import edu.gym.climbing.commands.GymCommand;
 import edu.gym.climbing.model.Gym;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
