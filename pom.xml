@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>edu.vitargo</groupId>
-    <artifactId>sfg-recipe-project</artifactId>
+    <artifactId>climbing-gym-its</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>sfg-recipe-project</name>
+    <name>climbing-gym-its</name>
     <description>Demo project for Spring Boot</description>
     <properties>
         <java.version>11</java.version>
